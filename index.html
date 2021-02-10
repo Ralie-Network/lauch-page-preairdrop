@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Ralie Network | Connecting People Through Blockchain</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/ralie.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+	
+	
+	<div class="bg-img1 size1 flex-w flex-c-m p-t-55 p-b-55 p-l-15 p-r-15" style="background-image: url('images/bg01.jpg');">
+		<div class="wsize1">
+		
+			<h3 class="l1-txt1 txt-center p-b-22">
+				Coming Soon
+			</h3>
+
+			<p class="txt-center s1-txt1 p-b-67">
+				Our website is under construction, follow us for update now!
+			</p>
+
+			<div class="flex-w flex-sa-m cd100 p-t-42 p-b-22 p-l-50 p-r-50 respon1">
+				<div class="flex-col-c-m wsize2 m-b-20">
+					<span class="l1-txt2 p-b-4 days">00</span>
+					<span class="s1-txt1">Days</span>
+				</div>
+
+				<span class="l1-txt2 p-b-22">:</span>
+				
+				<div class="flex-col-c-m wsize2 m-b-20">
+					<span class="l1-txt2 p-b-4 hours">00</span>
+					<span class="s1-txt1">Hours</span>
+				</div>
+
+				<span class="l1-txt2 p-b-22 respon2">:</span>
+
+				<div class="flex-col-c-m wsize2 m-b-20">
+					<span class="l1-txt2 p-b-4 minutes">00</span>
+					<span class="s1-txt1">Minutes</span>
+				</div>
+
+				<span class="l1-txt2 p-b-22">:</span>
+
+				<div class="flex-col-c-m wsize2 m-b-20">
+					<span class="l1-txt2 p-b-4 seconds">00</span>
+					<span class="s1-txt1">Seconds</span>
+				</div>
+			</div>
+
+			<form class="flex-w flex-c-m contact100-form validate-form p-t-70">
+				<div class="wrap-input100 validate-input where1" data-validate = "Email is required: ex@abc.xyz">
+					<input class="s1-txt1 placeholder0 input100" type="text" id = "input_mail" name="email" placeholder="Email Address">
+					<span class="focus-input100"></span>
+				</div>
+
+				<button class="flex-c-m s1-txt1 size2 how-btn trans-04 where1" id = "btn">
+					Notify Me
+				</button>
+			</form>			
+		</div>
+	</div>
+
+
+
+	
+
+<!--===============================================================================================-->	
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/moment.min.js"></script>
+	<script src="vendor/countdowntime/moment-timezone.min.js"></script>
+	<script src="vendor/countdowntime/moment-timezone-with-data.min.js"></script>
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+	<script>
+
+		var countDownDate = new Date("Feb 17, 2021 16:00:00").getTime();
+		var now = new Date().getTime();
+		var distance = countDownDate - now;
+
+		$('.cd100').countdown100({
+			/*Set Endtime here*/
+			/*Endtime must be > current time*/
+			endtimeYear: 0,
+			endtimeMonth: 0,
+			endtimeDate: Math.floor(distance / (1000 * 60 * 60 * 24)),
+			endtimeHours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+			endtimeMinutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+			endtimeSeconds: Math.floor((distance % (1000 * 60)) / 1000),
+			timeZone: "",
+			// ex:  timeZone: "America/New_York"
+			//go to " http://momentjs.com/timezone/ " to get timezone
+		});
+	</script>
+<!--===============================================================================================-->
+	<script src="vendor/tilt/tilt.jquery.min.js"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
+	<script>
+		let waitlist = [];
+		const addEmail = (ev)=>{
+			ev.preventDefault();
+			let waiter = {
+				id: Date.now(),
+				mail: document.getElementById('input_mail').value
+			}
+			waitlist.push(waiter);
+			document.forms[0].reset();
+
+			console.warn('added', (waitlist));
+			//let pre = document.querySelector('#msg pre');
+			//pre.textContent = '\n' + JSON.stringify(waitlist, '\t', 2);
+
+			localStorage.setItem('Mailist', JSON.stringify(waitlist));
+		}
+		document.addEventListener('DOMContentLoaded', ()=>{
+			document.getElementById('btn').addEventListener('click',addEmail);
+		});
+	</script>
+
+</body>
+</html>
