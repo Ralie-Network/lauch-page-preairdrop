@@ -1,9 +1,9 @@
 <?php
 
-define('DB_NAME', 'raliea_db1');
-define('DB_USER', 'raliea_1');
-define('DB_PASSWORD', 'Pd16u5sNy8qyALve');
-define('DB_HOST', 'sql329.your-server.de');
+define('DB_NAME', 'xxxxxx');
+define('DB_USER', 'xxxxxx');
+define('DB_PASSWORD', 'xxxxxx');
+define('DB_HOST', 'xxxxxx');
 
 $connection = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD);
 
